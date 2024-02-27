@@ -60,15 +60,17 @@ foreach ($task in $tasks) {
                     $canModify = $true
                 }
 
-                $actionColor = if ($canModify) {"Red"} else {"White"}
-                $prefix = if ($exePath -imatch "microsoft|windows") {"(!)"} else {"(!!)"}
+                $prefix = if ($exePath -imatch "microsoft|windows") {""} else {"(!)"}
                 $additionalMessage = if ($exePath -imatch "microsoft|windows") {""} else {" (also, there is no Windows path)"}
-
-                $actionMessage = if ($canModify) {"$prefix Can action"} else {"Cannot action"}
+                $actionMessage = if ($canModify) {"can"} else {"cannot"}
 
                 if ($canModify -or $All.IsPresent) {
                     Write-Host "`nTask Information for: $($task.TaskName)" -ForegroundColor Green
-                    Write-Host "$actionMessage Current User: $currentUsername can action this file.$additionalMessage" -ForegroundColor $actionColor
+                    if ($canModify) {
+                        Write-Host "$prefix Current User: $currentUsername $actionMessage action this file.$additionalMessage" -ForegroundColor Red
+                    } else {
+                        Write-Host "Current User: $currentUsername $actionMessage action this file." -ForegroundColor White
+                    }
                     foreach ($property in $task.PSObject.Properties) {
                         if (-not [string]::IsNullOrWhiteSpace($property.Value)) {
                             Write-Host "$($property.Name): $($property.Value)" -ForegroundColor Yellow
