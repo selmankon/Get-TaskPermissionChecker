@@ -10,8 +10,6 @@ Displays only items where the current user has the capability to modify the file
 - -cls: Clears the console for a fresh view.
 - -Debug: Displays debug information.
 
-![image](https://github.com/selmankon/Get-TaskPermissionChecker/assets/12685802/4e3ce0ab-607c-4f18-8482-f327d0628d83)
-
-
+![image](https://github.com/selmankon/Get-TaskPermissionChecker/assets/12685802/95f5621d-8adb-4817-905e-4739524ed4e7)
 
 
