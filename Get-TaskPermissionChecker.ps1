@@ -20,7 +20,7 @@ if ($cls.IsPresent) {
 Write-Host " "
 Write-Host "Scheduled Task Comprehensive Analysis" -ForegroundColor Cyan
 Write-Host "Waiting for schtasks to complete..." -ForegroundColor Cyan
-Write-Host "Use -clearScreen switch to clear the screen." -ForegroundColor Yellow
+Write-Host "Use -cls switch to clear the screen." -ForegroundColor Yellow
 Write-Host " "
 
 $tasks = schtasks /query /fo CSV /v | ConvertFrom-Csv
